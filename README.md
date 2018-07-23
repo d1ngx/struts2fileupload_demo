@@ -13,5 +13,7 @@ Action实例中，从而能够以本地文件的方式操作浏览器上传的�
 3）添加资源文件输出错误信息<br>
 4）Jsp显示错误提示。在上传页面加入<s:fielderror/>标签<br>
 3.web.xml配置文件<br>
+upload.jsp页面<br>
 ![image](https://github.com/ericdoomed/struts2fileupload_demo/blob/master/src/pics/01.PNG)
+选择一个图片文件进行上传，成功后如下图所示<br>
 ![image](https://github.com/ericdoomed/struts2fileupload_demo/blob/master/src/pics/02.PNG)

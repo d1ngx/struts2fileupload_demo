@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 此处用constant元素定义常量 -->
+	<constant name="struts.devMode" value="true"/>
+	<!-- 定义资源文件的位置和类型 -->
+	<constant name="struts.custom.i18n.resources" value="properties/myMessages"/>
+	<!-- 设置应用使用的解析码 -->
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<!-- 设置应用使用的上传解析器类型 -->
+	<constant name="struts.multipart.parser" value="jakarta"/>
+	<!-- 指定存放临时文件的文件夹 -->
+	<constant name="struts.multipart.saveDir" value="/temp"></constant>
+	
+	<package name="upload" extends="struts-default">
+		<action name="upload" class="com.ascent.upload.action.UpLoadAction">
+			<!-- 配置fileUpload拦截器 -->
+			<interceptor-ref name="fileUpload">
+				<!-- 设置上传文件类型 -->
+				<param name="allowedTypes">image/bmp,image/png,image/jpg,image/gif,image/pjpeg</param>
+				<!-- 设置上传文件大小 -->
+				<param name="maximumSize">200000</param>
+			</interceptor-ref>
+			<!-- 必须显示配置引用struts默认的拦截器栈：defaultStack -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+			<!-- 设置上传路径 -->
+			<param name="savePath">/upload</param>
+			<result name="success">/upload_succ.jsp</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+	</package>
+
+</struts>
